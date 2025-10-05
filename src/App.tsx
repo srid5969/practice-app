@@ -1,9 +1,12 @@
 
 import { useState } from 'react';
 import './App.css'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
 
-function App() {
+function Home() {
   const [name, setName] = useState<string | undefined>(undefined)
+  const navigate = useNavigate();
 
   return (
     <>
@@ -29,10 +32,22 @@ function App() {
 
           alert(`Vanakkam ${name} , 
             Ungalai Sridhar Anbudan varaverkiraar`);
+            navigate('/dashboard');
         }}
       >Submit</button>
     </>
   )
 }
 
+function App(){
+    return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  );
+
+}
 export default App
