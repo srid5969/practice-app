@@ -25,7 +25,11 @@ export class BoardService {
     const [sortField, sortOrder] = sort.split('|');
 
     const data = await this.boardModel
-      .find()
+      .find({},{
+        name: 1,
+        owner: 1,
+        _id: 1,
+      })
       .limit(limit)
       .skip(skip)
       .sort({ [sortField]: sortOrder === 'DESC' ? -1 : 1 });
