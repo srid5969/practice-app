@@ -23,6 +23,8 @@ async function bootstrap() {
     }),
   );
   app.enableVersioning();
+  const cors = app.get(ConfigService).get<string>('cors');
+  app.enableCors({ origin: cors });
   const config = new DocumentBuilder()
     .setTitle('Kamban Board APIs')
     .setDescription('Use Kamban Board APIs Document')
