@@ -44,7 +44,7 @@ function BoardsPage() {
               if (!newBoardName || !newBoardOwner) return;
               setAdding(true);
               try {
-                const { data } = await apiService.addNewBoard({
+                await apiService.addNewBoard({
                   name: newBoardName,
                   owner: newBoardOwner,
                 });

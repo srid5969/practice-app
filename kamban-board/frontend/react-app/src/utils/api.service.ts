@@ -14,7 +14,7 @@ class ApiService {
     }
 
     public async getBoardsList() {
-        const { data: { data, totalCount } } = await this.axios.get('/boards');
+        const { data: { data: { data, totalCount } } } = await this.axios.get('/boards');
         return { data, totalCount };
     }
 
