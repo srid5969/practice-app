@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { BoardService } from './services/board.service';
 import { QueryParams } from 'src/common/dtos/query-params.dto';
 
@@ -7,7 +7,10 @@ export class BoardController {
   constructor(private readonly boardService: BoardService) {}
 
   @Get()
-  async getBoards(params: QueryParams) {
+  async getBoards(
+    @Query()
+    params: QueryParams,
+  ) {
     const data = await this.boardService.listBoards(params);
     return data;
   }
