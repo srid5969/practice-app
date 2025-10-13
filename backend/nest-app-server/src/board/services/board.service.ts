@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Board } from '../schemas/board.schema';
-import { QueryParams } from 'src/common/dtos/query-params.dto';
+import { QueryParams } from './../../common/dtos/query-params.dto';
 import { CreateBoardDto } from '../dto/board.dto';
 
 @Injectable()

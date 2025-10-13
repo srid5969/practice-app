@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { BoardService } from './services/board.service';
-import { QueryParams } from 'src/common/dtos/query-params.dto';
+import { QueryParams } from './../common/dtos/query-params.dto';
 import { CreateBoardDto } from './dto/board.dto';
 
 @Controller('boards')
