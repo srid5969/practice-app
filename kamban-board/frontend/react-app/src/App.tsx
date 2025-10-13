@@ -1,22 +1,26 @@
 
-import { useState } from 'react';
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Dashboard from './pages/dashboard';
+import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
+import './App.css';
 import BoardsPage from './pages/boards';
+import NotFoundPage from './pages/non-found';
+
+import { useEffect } from 'react';
 
 function Home() {
   const navigate = useNavigate();
-  navigate('/boards');
+  useEffect(() => {
+    navigate('/boards');
+  }, []);
   return <div>Redirecting to Boards...</div>;
 }
 
-function App(){
-    return (
+function App() {
+  return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/boards" element={<BoardsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

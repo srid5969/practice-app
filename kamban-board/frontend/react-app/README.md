@@ -1,75 +1,95 @@
-# React + TypeScript + Vite
+# Kamban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Kanban-style task management board built with React and TypeScript. This project demonstrates modern React patterns, state management, and drag-and-drop functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create, view, and manage boards, columns, and tasks
+- Drag-and-drop tasks between columns
+- State management with Redux Toolkit
+- TypeScript for type safety
+- Vite for fast development and build
+- Modular and scalable folder structure
 
-## React Compiler
+## Getting Started
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Prerequisites
 
-Note: This will impact Vite dev & build performances.
+- Node.js (v16+ recommended)
+- npm or yarn
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# or
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the App
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+# or
+yarn dev
 ```
+
+The app will be available at `http://localhost:5173`.
+
+## Project Structure
+
+```
+react-app/
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+├── vite-env.d.ts
+├── vite.config.ts
+├── public/
+│   └── fav-icon.svg
+└── src/
+  ├── App.css
+  ├── App.tsx
+  ├── index.css
+  ├── main.tsx
+  ├── app/
+  │   ├── hooks.ts
+  │   └── store.ts
+  ├── assets/
+  │   └── react.svg
+  ├── configurations/
+  │   └── configs.ts
+  ├── features/
+  │   ├── boards/
+  │   │   ├── BoardList.tsx
+  │   │   ├── BoardPage.tsx
+  │   │   └── boardsSlice.ts
+  │   ├── columns/
+  │   │   ├── Column.tsx
+  │   │   └── columnsSlice.ts
+  │   └── tasks/
+  │       ├── TaskCard.tsx
+  │       └── tasksSlice.ts
+  ├── pages/
+  │   ├── boards/
+  │   │   └── index.tsx
+  │   ├── dashboard/
+  │   │   └── index.tsx
+  │   └── non-found/
+  │       └── index.tsx
+  └── utils/
+    ├── api.service.ts
+    ├── constants.ts
+    └── dndHelpers.ts
+```
+
+## License
+
+This project is licensed under the MIT License.
