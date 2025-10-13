@@ -3,13 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Board } from '../schemas/board.schema';
 import { QueryParams } from 'src/common/dtos/query-params.dto';
+import { CreateBoardDto } from '../dto/board.dto';
 
 @Injectable()
 export class BoardService {
   constructor(@InjectModel(Board.name) private boardModel: Model<Board>) {}
 
-  async createBoard(name: string, owner: string): Promise<Board> {
-    const newBoard = new this.boardModel({ name, owner });
+  async createBoard(requestBody: CreateBoardDto): Promise<Board> {
+    const newBoard = new this.boardModel(requestBody);
     const board = await newBoard.save();
     return board;
   }
