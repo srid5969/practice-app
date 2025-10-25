@@ -1,29 +1,12 @@
-
-import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
-import './App.css';
-import BoardsPage from './pages/boards';
-import NotFoundPage from './pages/non-found';
-
-import { useEffect } from 'react';
-
-function Home() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate('/boards');
-  }, []);
-  return <div>Redirecting to Boards...</div>;
-}
+import BoardList from './features/boards/BoardList';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/boards" element={<BoardsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+    <div style={{ padding: 16, fontFamily: 'system-ui, sans-serif' }}>
+      <h1 style={{ fontSize: 22, marginBottom: 12 }}>Kanban — Demo</h1>
+      <BoardList />
+    </div>
   );
-
 }
-export default App
+
+export default App;
