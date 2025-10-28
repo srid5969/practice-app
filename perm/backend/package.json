@@ -1,0 +1,30 @@
+{
+  "name": "app_server",
+  "version": "1.0.0",
+  "description": "this is a perm stack crud app server with typescript and zod validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon index.js",
+    "format":"prettier --write ."
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "sridhar",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "husky": "^9.1.7",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "prettier": "^3.6.2",
+    "sequelize": "^6.37.7",
+    "shx": "^0.4.0",
+    "zod": "^4.1.12"
+  }
+}
