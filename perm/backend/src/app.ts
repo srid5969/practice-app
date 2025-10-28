@@ -1,12 +1,10 @@
 import express, { Application } from 'express';
 
- class App{
+class App {
+	public express: Application;
+	public async init() {
+		this.express = express();
+	}
+}
 
-    public express : Application
-   public async init(){
-         		this.express = express();
-
-    }
- }
-
- export default App;
+export default App;
