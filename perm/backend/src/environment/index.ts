@@ -3,6 +3,7 @@ import { DotenvParseOutput, config as configDotenv } from 'dotenv';
 // import * as path from 'path';
 import { Dialect } from 'sequelize';
 import IEnvironment from './interface';
+import logger from '../lib/logger';
 
 class Environment implements IEnvironment {
 	port: number;
@@ -27,27 +28,27 @@ class Environment implements IEnvironment {
 		this.dbDatabase = this.parsedEnv.DB_DATABSE;
 		this.dbIp = this.parsedEnv.DB_IP;
 		this.dbPort = parseInt(this.parsedEnv.DB_PORT || '5432', 10);
-		console.debug('ENV | Environment variables set successfully');
+		logger.debug('ENV | Environment variables set successfully');
 	}
 
 	public setEnvironment(): void {
-		// console.debug('ENV | Setting environment variables');
+		// logger.debug('ENV | Setting environment variables');
 		// const rootdir: string = path.resolve(__dirname, '../../');
 		// const envPath = path.resolve(rootdir, '.env');
-		// console.debug(`ENV | Root directory resolved at ${rootdir}`);
+		// logger.debug(`ENV | Root directory resolved at ${rootdir}`);
 		// if (!fs.existsSync(envPath)) {
-		// 	console.error('ENV | .env file is missing in root directory');
+		// 	logger.error('ENV | .env file is missing in root directory');
 		// 	throw new Error('.env file is missing in root directory');
 		// }
-		// console.debug(`ENV | .env file found at ${envPath}, loading...`);
+		// logger.debug(`ENV | .env file found at ${envPath}, loading...`);
 		// const envConfig = configDotenv({ path: envPath });
-		// console.debug('ENV | .env file found, loading variables', this.parsedEnv);
+		// logger.debug('ENV | .env file found, loading variables', this.parsedEnv);
 		// const { parsed: parsedConfig } = configDotenv({ path: envPath });
 		
 		configDotenv();
 		this.parsedEnv = process.env;
 		if(!this.parsedEnv) {
-			console.error('ENV configuration not found')
+			logger.error('ENV configuration not found')
 			throw new Error('ENV variable not found')
 		}
 	}

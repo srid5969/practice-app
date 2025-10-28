@@ -1,6 +1,7 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import { Server as HttpServer } from 'http';
 import { env } from './environment';
+import logger from './lib/logger';
 
 class App {
 	public express: Application;
@@ -38,7 +39,7 @@ class App {
 	}
 
 	private async loggerWatcher() {
-		console.log(`APP | watcher running app`);
+		logger.info(`APP | watcher running app`);
 	}
 
 	private preAuthRoutes(): void {
