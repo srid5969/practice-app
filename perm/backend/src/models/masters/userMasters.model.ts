@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { Database } from '../../database';
+import { UserStatus } from '../../utils/enums/users';
 
 const UserMaster = Database.getConnection().define(
 	'UserMaster',
@@ -49,7 +50,7 @@ const UserMaster = Database.getConnection().define(
 
 		status: {
 			type: DataTypes.ENUM,
-			values: ['active', 'inactive'],
+			values: [UserStatus.ACTIVE, UserStatus.INACTIVE],
 			allowNull: false,
 		},
 	},
