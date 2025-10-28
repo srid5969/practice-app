@@ -9,7 +9,7 @@ interface IEnvironment {
 	dbPort: number;
 	dbDialect?: Dialect;
 	applicationName: string;
-	setEnvironment(env: string): void;
+	setEnvironment(): void;
 }
 
 export default IEnvironment;
