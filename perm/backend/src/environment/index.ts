@@ -19,7 +19,7 @@ class Environment implements IEnvironment {
 
 	constructor() {
 		this.setEnvironment();
-		
+
 		const port: string | undefined | number = this.parsedEnv.PORT || 8080;
 		this.port = Number(port);
 		this.applicationName = this.parsedEnv.APPLICATION_NAME;
@@ -44,12 +44,12 @@ class Environment implements IEnvironment {
 		// const envConfig = configDotenv({ path: envPath });
 		// logger.debug('ENV | .env file found, loading variables', this.parsedEnv);
 		// const { parsed: parsedConfig } = configDotenv({ path: envPath });
-		
+
 		configDotenv();
 		this.parsedEnv = process.env;
-		if(!this.parsedEnv) {
-			logger.error('ENV configuration not found')
-			throw new Error('ENV variable not found')
+		if (!this.parsedEnv) {
+			logger.error('ENV configuration not found');
+			throw new Error('ENV variable not found');
 		}
 	}
 }
