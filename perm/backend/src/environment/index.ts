@@ -1,6 +1,6 @@
 import { DotenvParseOutput, config as configDotenv } from 'dotenv';
-import * as fs from 'fs';
-import * as path from 'path';
+// import * as fs from 'fs';
+// import * as path from 'path';
 import { Dialect } from 'sequelize';
 import IEnvironment from './interface';
 
@@ -50,8 +50,6 @@ class Environment implements IEnvironment {
 			console.error('ENV configuration not found')
 			throw new Error('ENV variable not found')
 		}
-		console.debug("Found ENV variables are  ", this.parsedEnv)
-
 	}
 }
 

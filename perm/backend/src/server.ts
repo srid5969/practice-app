@@ -6,5 +6,6 @@ app.init().then(() => {
   const PORT = env.port;
   app.httpServer.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log(`http://127.0.0.1:${PORT}`);
   });
 });
