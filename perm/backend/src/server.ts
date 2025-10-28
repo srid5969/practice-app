@@ -8,5 +8,6 @@ app.init().then(() => {
 	app.httpServer.listen(PORT, () => {
 		logger.info(`Server is running on port ${PORT}`);
 		logger.info(`http://127.0.0.1:${PORT}`);
+		logger.info(`${env.applicationName} is ready .... `);
 	});
 });
