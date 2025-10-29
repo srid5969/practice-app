@@ -1,0 +1,23 @@
+{
+  "postman.settings.dotenv-detection-notification-visibility": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#f1c40f",
+    "activityBar.background": "#f1c40f",
+    "activityBar.foreground": "#2c3e50",
+    "activityBar.inactiveForeground": "#2c3e5099",
+    "activityBarBadge.background": "#e74c3c",
+    "activityBarBadge.foreground": "#ffffff",
+    "commandCenter.border": "#2c3e5099",
+    "sash.hoverBorder": "#f1c40f",
+    "statusBar.background": "#d4ac0d",
+    "statusBar.foreground": "#2c3e50",
+    "statusBarItem.hoverBackground": "#f1c40f",
+    "statusBarItem.remoteBackground": "#d4ac0d",
+    "statusBarItem.remoteForeground": "#2c3e50",
+    "titleBar.activeBackground": "#d4ac0d",
+    "titleBar.activeForeground": "#2c3e50",
+    "titleBar.inactiveBackground": "#d4ac0d99",
+    "titleBar.inactiveForeground": "#2c3e5099"
+  },
+  "peacock.color": "#d4ac0d",
+}
