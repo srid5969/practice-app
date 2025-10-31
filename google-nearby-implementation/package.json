@@ -1,0 +1,40 @@
+{
+  "name": "app_server",
+  "version": "1.0.0",
+  "description": "this is a perm stack crud app server with typescript and zod validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "format": "prettier --write src"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "sridhar",
+  "license": "ISC",
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.2",
+    "axios": "^1.13.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase": "^12.5.0",
+    "firebase-admin": "^13.5.0",
+    "h3-js": "^4.3.0",
+    "helmet": "^8.1.0",
+    "http": "^0.0.1-security",
+    "husky": "^9.1.7",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10",
+    "p-limit": "^7.2.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "prettier": "^3.6.2",
+    "sequelize": "^6.37.7",
+    "shx": "^0.4.0",
+    "ts-node": "^10.9.2",
+    "zod": "^4.1.12"
+  }
+}
