@@ -76,19 +76,50 @@ export default class PlacesController extends BaseApi {
 		const task = 'GET-ALL-SALOONS';
 		try {
 			logger.info(`${task} | Fetching all saloons from service`);
+			logger.trace(`${task} | Query params:`, req.query);
+
+			const { lat, lng, radius } = req.query;
+			logger.trace(
+				`${task} | Query params - lat: ${lat}, lng: ${lng}, radius: ${radius}`,
+			);
 
 			const saloons = await database.collection('saloonsv2').get();
+			logger.trace(
+				`${task} | Fetched saloons:`,
+				saloons.docs.map((doc) => doc.data()),
+			);
+			// Filter saloons based on query params
+			const filteredSaloons = saloons.docs.filter((doc) => {
+				const data = doc.data();
+				console.log('Saloon data:', data);
+
+				if (lat && lng && radius && data?.location && data?.location?.lat && data?.location?.lng) {
+					const distance = HexagonService.calculateDistance(
+						data.location.lat,
+						data.location.lng,
+						parseFloat(lat as string),
+						parseFloat(lng as string),
+					);
+					return distance <= parseFloat(radius as string);
+				}
+				return true;
+			});
+			logger.trace(
+				`${task} | Filtered saloons:`,
+				filteredSaloons.map((doc) => doc.data()),
+			);
 
 			const result = {
 				message: 'Fetched all saloons successfully',
 				totalSaloons: saloons.size,
-				data: saloons.docs.map((doc) => doc.data()),
+				resultCount: filteredSaloons.length,
+				data: filteredSaloons.map((doc) => doc.data()),
 			};
 
 			res.locals.data = result;
 		} catch (error) {
 			logger.error(
-				`${task} | Error fetching all saloons: ${error.message}`,
+				`${task} | Error fetching all saloons: ${error.message}`,error
 			);
 			return next(
 				new AppGlobalError(
